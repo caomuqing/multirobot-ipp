@@ -1,0 +1,22 @@
+# Ignore large outputs and caches
+runs/
+gifs/
+models/
+evalresult_*/
+centrainceneval_*/
+centraindeceneval_*/
+decentrainceneval_*/
+decentraindeceneval_*/
+centralized_*/
+decentralized_*/
+test_*/
+run_ippo_*/
+*.mp4
+*.png
+.idea/
+__pycache__/
+*.pyc
+*.pyo
+.git/
+.gitignore
+*.pth

@@ -1,0 +1,29 @@
+services:
+  compass:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      # For GPU support, uncomment:
+      args:
+        PIP_EXTRA: https://download.pytorch.org/whl/cu121
+    image: compass:latest
+    container_name: compass
+    volumes:
+      # Mount COMPASS folder so you can edit code and run without rebuilding
+      - .:/workspace/COMPASS
+    working_dir: /workspace/COMPASS
+    # For GPU support, uncomment:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    # Default: run training driver
+    command: ["python3", "driver.py"]
+    # Override from host:
+    #   docker compose run compass python3 driver.py
+    #   docker compose run compass python3 evals/eval_driver.py
+    stdin_open: true
+    tty: true

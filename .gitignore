@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+*.log
+
+# Training and evaluation outputs
+runs/
+gifs/
+_eval_shim/
+*_single_eval/
+*_na[0-9]*_nc[01]/
+ablation_*/
+final_*/
+batch_eval_summary*.csv
+
+# New checkpoints (the two paper policies stay tracked)
+models/*
+!models/centralized_nocollision_hgt003/
+!models/decentralized_nocollision_hgt003/
